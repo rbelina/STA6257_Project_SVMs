@@ -1,6 +1,6 @@
 ---
 title: "Report Sample"
-author: "Student name"
+author: "Robert Belina"
 date: '`r Sys.Date()`'
 format:
   html:
