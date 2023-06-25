@@ -1,5 +1,5 @@
 ---
-title: "Report Sampleeeeess"
+title: "Robert Belina SVMs Sample Page"
 author: "Robert Belina"
 date: '`r Sys.Date()`'
 format:
