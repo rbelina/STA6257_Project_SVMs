@@ -37,7 +37,9 @@ are positive numbers and small if $X_i$ is far from $x$.
 A study was conducted to determine how...
 
 ```{r, warning=FALSE, echo=T, message=FALSE}
-# loading packages 
+# loading packages
+#install.packages("ggthemes")
+#install.packages("dslabs")
 library(tidyverse)
 library(knitr)
 library(ggthemes)
