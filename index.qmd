@@ -15,7 +15,6 @@ Support Vector Machines (SVMs) have emerged as a powerful and versatile machine 
 
 
 ## Methods
-
 Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks. In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.
 
 Data Preprocessing:
