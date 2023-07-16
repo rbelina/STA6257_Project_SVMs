@@ -118,6 +118,11 @@ plot(set[, -3],
 
 ```
 
+### Results *draft*
+
+...Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance. The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.
+
+Overall, the results highlight the capabilities of SVMs as a powerful machine learning algorithm for classification tasks. The SVM model successfully classified the target variable with high accuracy and demonstrated robustness in handling complex relationships within the data. These findings emphasize the potential of SVMs as a valuable tool for data analysis and prediction in various domains.
 
 ### Statistical Modeling
 
