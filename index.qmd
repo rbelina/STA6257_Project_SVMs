@@ -54,11 +54,10 @@ Paper specific methods *HERE*
 ## Analysis and Results
 ### Data and Vizualisation
 
-
-```
-
 ### Statistical Modeling
 
 ### Conlusion
 
 ## References
+
+
