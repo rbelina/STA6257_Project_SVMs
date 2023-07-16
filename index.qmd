@@ -22,7 +22,7 @@ The versatility of SVMs extends beyond classification tasks, as they have also b
 In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage this powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis. [@efr2008]. Cite this paper [@bro2014principal].
 
 
-## Methods
+## Methods *draft*
 Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks. In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.
 
 Data Preprocessing:
@@ -46,7 +46,17 @@ Model Deployment:
 
 Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
 
-Paper specific methods *HERE*
+### Paper specific methods *HERE*
+
+
+## Analysis and Results
+### Data and Vizualisation
+
+### Statistical Modeling
+
+### Conlusion
+
+## References
 
 
 
