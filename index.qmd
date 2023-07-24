@@ -6,7 +6,7 @@ format:
   html:
     code-fold: true
 course: STA 6257 - Advance Statistical Modeling
-bibliography: references.bib # file contains bibtex for references
+bibliography: references1.bib # file contains bibtex for references
 #always_allow_html: true # this allows to get PDF with HTML features
 editor_options: 
   markdown: 
@@ -158,4 +158,12 @@ These findings emphasize the potential of SVMs as a valuable tool for data analy
 ### Conlusion
 
 ## References
+Brereton, R. G., & Lloyd, G. R. (2010). Support Vector Machines for classification and regression. The Analyst, 135(2), 230–267. https://doi.org/10.1039/b918972f
 
+Evgeny Byvatov, & Schneider, G. (2003). Support vector machine applications in bioinformatics. Applied Bioinformatics, 2(2), 67–77.
+
+Kecman, V. (2005). Support Vector Machines – An Introduction. Support Vector Machines: Theory and Applications, 177, 1–47. https://doi.org/10.1007/10984697_1
+
+Tian, Y., Shi, Y., & Liu, X. (2012). RECENT ADVANCES ON SUPPORT VECTOR MACHINES RESEARCH. Technological and Economic Development of Economy, 18(1), 5–33. https://doi.org/10.3846/20294913.2012.661205
+
+Yang, Z. R. (2004). Biological applications of support vector machines. Briefings in Bioinformatics, 5(4), 328–338. https://doi.org/10.1093/bib/5.4.328
