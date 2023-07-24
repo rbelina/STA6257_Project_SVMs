@@ -130,6 +130,6 @@ Overall, the results highlight the capabilities of SVMs as a powerful machine le
 
 ## References
 
-
+Works Cited Brereton, Richard G., and Gavin R. Lloyd. “Support Vector Machines for Classification and Regression.” The Analyst, vol. 135, no. 2, 2010, pp. 230–267, https://doi.org/10.1039/b918972f.Evgeny Byvatov, and Gisbert Schneider. “Support Vector Machine Applications in Bioinformatics.” Applied Bioinformatics, vol. 2, no. 2, 1 Jan. 2003, pp. 67–77.Kecman, V. “Support Vector Machines – an Introduction.” Support Vector Machines: Theory and Applications, vol. 177, 22 Apr. 2005, pp. 1–47, https://doi.org/10.1007/10984697_1.Tian, Yingjie, et al. “RECENT ADVANCES on SUPPORT VECTOR MACHINES RESEARCH.” Technological and Economic Development of Economy, vol. 18, no. 1, 10 Apr. 2012, pp. 5–33, https://doi.org/10.3846/20294913.2012.661205.Yang, Z. R. “Biological Applications of Support Vector Machines.” Briefings in Bioinformatics, vol. 5, no. 4, 1 Jan. 2004, pp. 328–338, https://doi.org/10.1093/bib/5.4.328.
 
 
