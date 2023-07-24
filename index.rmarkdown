@@ -14,6 +14,7 @@ editor_options:
     wrap: sentence
 ---
 
+
 ## Introduction
 
 Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains.
@@ -107,6 +108,7 @@ Preprocess the new data using the same steps as the training data (e.g., feature
 
 ### Packages
 
+
 ```{r}
 
 set.seed(10111)
@@ -141,7 +143,9 @@ points(x[svmfit$index,], pch = 5, cex = 2)
 
 ```
 
+
 ### Data and Vizualisation
+
 
 ```{r}
 
@@ -235,6 +239,7 @@ decision_surface <- function(model, data, feature1, feature2) {
 
 ```
 
+
 ### Results
 
 ...Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance.
@@ -259,4 +264,5 @@ However, we also discussed some limitations of SVMs, such as the lack of direct 
 Overall, SVMs continue to be a widely used and highly regarded algorithm in the machine learning community due to their accuracy, effectiveness, and versatility. Their ability to handle various classification tasks and perform well in both linear and non-linear scenarios makes them a valuable asset in the data scientist's toolkit. As machine learning continues to evolve, SVMs will remain an essential component for addressing complex classification challenges in diverse applications. Further research and development in this area hold the promise of expanding SVMs' capabilities and advancing their practical implementation in various domains.
 
 ## References
+
 
