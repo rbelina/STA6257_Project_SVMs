@@ -1,12 +1,13 @@
 ---
 title: "Support Vector Machines"
+bibliography: references2.bib
 author: "Robert Belina"
 date: '`r Sys.Date()`'
 format:
   html:
     code-fold: true
 course: STA 6257 - Advance Statistical Modeling
-bibliography: references1.bib # file contains bibtex for references
+#bibliography: references2.bib # file contains bibtex for references
 #always_allow_html: true # this allows to get PDF with HTML features
 editor_options: 
   markdown: 
@@ -17,7 +18,7 @@ editor_options:
 
 Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains.
 Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively.
-The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them (@Kecman, 2005).
+The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
 ### Brief Introduction to Machine Learning
 
@@ -31,19 +32,19 @@ Just as humans learn through information and data gathering, machines also requi
 SVMs offer several advantages over traditional classification algorithms.
 Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes.
 This margin not only aids in achieving robust and accurate predictions on unseen data but also enhances the generalization ability of the model.
-By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios \[@Tian et al., 2012\].
+By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios [@tian_2012_recent].
 
 The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions.
 This enables SVMs to handle nonlinear relationships between variables without explicitly mapping them into the higher-dimensional space.
 By leveraging the kernel trick, SVMs efficiently capture complex decision boundaries, offering flexibility and adaptability to various data distributions.
 Furthermore, SVMs provide a principled approach to handle both binary and multiclass classification problems.
-Through techniques such as one-vs-one and one-vs-all, SVMs can extend their capabilities to accommodate multiple classes, ensuring accurate predictions across diverse scenarios.
+Through techniques such as one-vs-one and one-vs-all, SVMs can extend their capabilities to accommodate multiple classes, ensuring accurate predictions across diverse scenarios [@evgenybyvatov_2003_support]
 
 The versatility of SVMs extends beyond classification tasks, as they have also been successfully applied to regression, anomaly detection, and outlier detection problems.
-By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs.
+By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs [@brereton_2010_support].
 
 In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields.
-By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi\$\$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis \[@Yang, 2004\] Cite this paper [@bro2014principal].
+By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi\$\$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis [@yang_2004_biological].
 
 ## Methods
 
@@ -102,15 +103,14 @@ Model Deployment:
 Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data.
 Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
 
-### Paper specific methods *HERE*
-
 ## Analysis and Results
 
-### Data and Vizualisation
+### Packages
 
 ```{r}
-install.packages('plyr', repos = "http://cran.us.r-project.org")
-install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+
+#install.packages('plyr', repos = "http://cran.us.r-project.org")
+#install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 library("ggplot2")
 library(plyr)
 dataset <- read.csv('Social_Network_Ads.csv')
@@ -130,7 +130,7 @@ test_set = subset(dataset, split == FALSE)
 training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 
-install.packages('e1071', repos = "http://cran.us.r-project.org")
+#install.packages('e1071', repos = "http://cran.us.r-project.org")
 library(e1071)
   
 classifier = svm(formula = Purchased ~ .,
@@ -172,6 +172,13 @@ plot(set[, -3],
 
 ```
 
+### Data and Vizualisation
+
+```{r}
+
+
+```
+
 ### Results *draft*
 
 ...Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance.
@@ -187,29 +194,3 @@ These findings emphasize the potential of SVMs as a valuable tool for data analy
 
 ## References
 
-Brereton, R. G., & Lloyd, G. R.
-(2010).
-Support Vector Machines for classification and regression.
-The Analyst, 135(2), 230--267.
-https://doi.org/10.1039/b918972f
-
-Evgeny Byvatov, & Schneider, G.
-(2003).
-Support vector machine applications in bioinformatics.
-Applied Bioinformatics, 2(2), 67--77.
-
-Kecman, V. (2005).
-Support Vector Machines -- An Introduction.
-Support Vector Machines: Theory and Applications, 177, 1--47.
-https://doi.org/10.1007/10984697_1
-
-Tian, Y., Shi, Y., & Liu, X.
-(2012).
-RECENT ADVANCES ON SUPPORT VECTOR MACHINES RESEARCH. Technological and Economic Development of Economy, 18(1), 5--33.
-https://doi.org/10.3846/20294913.2012.661205
-
-Yang, Z. R.
-(2004).
-Biological applications of support vector machines.
-Briefings in Bioinformatics, 5(4), 328--338.
-https://doi.org/10.1093/bib/5.4.328

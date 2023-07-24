@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -140,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains. Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively. The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them (<span class="citation" data-cites="Kecman">(<a href="#ref-Kecman" role="doc-biblioref"><strong>Kecman?</strong></a>)</span>, 2005).</p>
+<p>Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains. Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively. The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them <span class="citation" data-cites="kecman_2005_support">(<a href="#ref-kecman_2005_support" role="doc-biblioref">Kecman 2005</a>)</span>.</p>
 <section id="brief-introduction-to-machine-learning" class="level3">
 <h3 class="anchored" data-anchor-id="brief-introduction-to-machine-learning">Brief Introduction to Machine Learning</h3>
 <p>Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.</p>
@@ -151,10 +170,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p></p><figcaption class="figure-caption">citation</figcaption><p></p>
 </figure>
 </div>
-<p>SVMs offer several advantages over traditional classification algorithms. Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes. This margin not only aids in achieving robust and accurate predictions on unseen data but also enhances the generalization ability of the model. By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios [<span class="citation" data-cites="Tian">(<a href="#ref-Tian" role="doc-biblioref"><strong>Tian?</strong></a>)</span> et al., 2012].</p>
-<p>The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions. This enables SVMs to handle nonlinear relationships between variables without explicitly mapping them into the higher-dimensional space. By leveraging the kernel trick, SVMs efficiently capture complex decision boundaries, offering flexibility and adaptability to various data distributions. Furthermore, SVMs provide a principled approach to handle both binary and multiclass classification problems. Through techniques such as one-vs-one and one-vs-all, SVMs can extend their capabilities to accommodate multiple classes, ensuring accurate predictions across diverse scenarios.</p>
-<p>The versatility of SVMs extends beyond classification tasks, as they have also been successfully applied to regression, anomaly detection, and outlier detection problems. By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs.</p>
-<p>In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi$$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis [<span class="citation" data-cites="Yang">(<a href="#ref-Yang" role="doc-biblioref"><strong>Yang?</strong></a>)</span>, 2004] Cite this paper <span class="citation" data-cites="bro2014principal">(<a href="#ref-bro2014principal" role="doc-biblioref"><strong>bro2014principal?</strong></a>)</span>.</p>
+<p>SVMs offer several advantages over traditional classification algorithms. Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes. This margin not only aids in achieving robust and accurate predictions on unseen data but also enhances the generalization ability of the model. By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios <span class="citation" data-cites="tian_2012_recent">(<a href="#ref-tian_2012_recent" role="doc-biblioref">Tian, Shi, and Liu 2012</a>)</span>.</p>
+<p>The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions. This enables SVMs to handle nonlinear relationships between variables without explicitly mapping them into the higher-dimensional space. By leveraging the kernel trick, SVMs efficiently capture complex decision boundaries, offering flexibility and adaptability to various data distributions. Furthermore, SVMs provide a principled approach to handle both binary and multiclass classification problems. Through techniques such as one-vs-one and one-vs-all, SVMs can extend their capabilities to accommodate multiple classes, ensuring accurate predictions across diverse scenarios <span class="citation" data-cites="evgenybyvatov_2003_support">(<a href="#ref-evgenybyvatov_2003_support" role="doc-biblioref">Byvatov and Schneider 2003</a>)</span></p>
+<p>The versatility of SVMs extends beyond classification tasks, as they have also been successfully applied to regression, anomaly detection, and outlier detection problems. By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs <span class="citation" data-cites="brereton_2010_support">(<a href="#ref-brereton_2010_support" role="doc-biblioref">Brereton and Lloyd 2010</a>)</span>.</p>
+<p>In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi$$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis <span class="citation" data-cites="yang_2004_biological">(<a href="#ref-yang_2004_biological" role="doc-biblioref">Yang 2004</a>)</span>.</p>
 </section>
 </section>
 <section id="methods" class="level2">
@@ -184,18 +203,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC). Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared. Cross-Validation: Perform k-fold cross-validation to estimate the model’s generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time. Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing dataset. Model Deployment:</p>
 <p>Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.</p>
 </section>
-<section id="paper-specific-methods-here" class="level3">
-<h3 class="anchored" data-anchor-id="paper-specific-methods-here">Paper specific methods <em>HERE</em></h3>
-</section>
 </section>
 <section id="analysis-and-results" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-and-results">Analysis and Results</h2>
-<section id="data-and-vizualisation" class="level3">
-<h3 class="anchored" data-anchor-id="data-and-vizualisation">Data and Vizualisation</h3>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'plyr'</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('plyr', repos = "http://cran.us.r-project.org")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("ggplot2", repos = "http://cran.us.r-project.org")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.1.2</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'plyr' was built under R version 4.1.2</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'Social_Network_Ads.csv'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset[<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>Purchased <span class="ot">=</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>Purchased, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'caTools'</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in readRDS(dest): lzma decoder corrupt data</code></pre>
@@ -203,116 +240,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
+    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpVRGIc5/downloaded_packages</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.1.2</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'plyr' was built under R version 4.1.2</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'Social_Network_Ads.csv'</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset[<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>Purchased <span class="ot">=</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>Purchased, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'caTools'</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>split <span class="ot">=</span> <span class="fu">sample.split</span>(dataset<span class="sc">$</span>Purchased, <span class="at">SplitRatio =</span> <span class="fl">0.75</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>training_set <span class="ot">=</span> <span class="fu">subset</span>(dataset, split <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">=</span> <span class="fu">subset</span>(dataset, split <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>training_set[<span class="sc">-</span><span class="dv">3</span>] <span class="ot">=</span> <span class="fu">scale</span>(training_set[<span class="sc">-</span><span class="dv">3</span>])</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>test_set[<span class="sc">-</span><span class="dv">3</span>] <span class="ot">=</span> <span class="fu">scale</span>(test_set[<span class="sc">-</span><span class="dv">3</span>])</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'e1071'</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>split <span class="ot">=</span> <span class="fu">sample.split</span>(dataset<span class="sc">$</span>Purchased, <span class="at">SplitRatio =</span> <span class="fl">0.75</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>training_set <span class="ot">=</span> <span class="fu">subset</span>(dataset, split <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">=</span> <span class="fu">subset</span>(dataset, split <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>training_set[<span class="sc">-</span><span class="dv">3</span>] <span class="ot">=</span> <span class="fu">scale</span>(training_set[<span class="sc">-</span><span class="dv">3</span>])</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>test_set[<span class="sc">-</span><span class="dv">3</span>] <span class="ot">=</span> <span class="fu">scale</span>(test_set[<span class="sc">-</span><span class="dv">3</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('e1071', repos = "http://cran.us.r-project.org")</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'e1071' was built under R version 4.1.2</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>classifier <span class="ot">=</span> <span class="fu">svm</span>(<span class="at">formula =</span> Purchased <span class="sc">~</span> .,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> training_set,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">'C-classification'</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">kernel =</span> <span class="st">'linear'</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicting the Test set results</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">=</span> <span class="fu">predict</span>(classifier, <span class="at">newdata =</span> test_set[<span class="sc">-</span><span class="dv">3</span>])</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Making the Confusion Matrix</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">=</span> <span class="fu">table</span>(test_set[, <span class="dv">3</span>], y_pred)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># installing library ElemStatLearn</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('ElemStatLearn')</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ElemStatLearn)</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the training data set results</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>set <span class="ot">=</span> training_set</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fu">min</span>(set[, <span class="dv">1</span>]) <span class="sc">-</span> <span class="dv">1</span>, <span class="fu">max</span>(set[, <span class="dv">1</span>]) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fu">min</span>(set[, <span class="dv">2</span>]) <span class="sc">-</span> <span class="dv">1</span>, <span class="fu">max</span>(set[, <span class="dv">2</span>]) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>grid_set <span class="ot">=</span> <span class="fu">expand.grid</span>(X1, X2)</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(grid_set) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Age'</span>, <span class="st">'EstimatedSalary'</span>)</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>y_grid <span class="ot">=</span> <span class="fu">predict</span>(classifier, <span class="at">newdata =</span> grid_set)</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(set[, <span class="sc">-</span><span class="dv">3</span>],</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">'SVM (Training set)'</span>,</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'Age'</span>, <span class="at">ylab =</span> <span class="st">'Estimated Salary'</span>,</span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(X1), <span class="at">ylim =</span> <span class="fu">range</span>(X2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>classifier <span class="ot">=</span> <span class="fu">svm</span>(<span class="at">formula =</span> Purchased <span class="sc">~</span> .,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> training_set,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">type =</span> <span class="st">'C-classification'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">kernel =</span> <span class="st">'linear'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicting the Test set results</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">=</span> <span class="fu">predict</span>(classifier, <span class="at">newdata =</span> test_set[<span class="sc">-</span><span class="dv">3</span>])</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Making the Confusion Matrix</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">=</span> <span class="fu">table</span>(test_set[, <span class="dv">3</span>], y_pred)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># installing library ElemStatLearn</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('ElemStatLearn')</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ElemStatLearn)</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the training data set results</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>set <span class="ot">=</span> training_set</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fu">min</span>(set[, <span class="dv">1</span>]) <span class="sc">-</span> <span class="dv">1</span>, <span class="fu">max</span>(set[, <span class="dv">1</span>]) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fu">min</span>(set[, <span class="dv">2</span>]) <span class="sc">-</span> <span class="dv">1</span>, <span class="fu">max</span>(set[, <span class="dv">2</span>]) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>grid_set <span class="ot">=</span> <span class="fu">expand.grid</span>(X1, X2)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(grid_set) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Age'</span>, <span class="st">'EstimatedSalary'</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>y_grid <span class="ot">=</span> <span class="fu">predict</span>(classifier, <span class="at">newdata =</span> grid_set)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(set[, <span class="sc">-</span><span class="dv">3</span>],</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">'SVM (Training set)'</span>,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'Age'</span>, <span class="at">ylab =</span> <span class="st">'Estimated Salary'</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(X1), <span class="at">ylim =</span> <span class="fu">range</span>(X2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'coral1', 'aquamarine'))</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'coral1', 'aquamarine'))</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+</section>
+<section id="data-and-vizualisation" class="level3">
+<h3 class="anchored" data-anchor-id="data-and-vizualisation">Data and Vizualisation</h3>
+<div class="cell">
+
 </div>
 </section>
 <section id="results-draft" class="level3">
@@ -327,16 +325,28 @@ The downloaded binary packages are in
 <h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
 </section>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Brereton, R. G., &amp; Lloyd, G. R. (2010). Support Vector Machines for classification and regression. The Analyst, 135(2), 230–267. https://doi.org/10.1039/b918972f</p>
-<p>Evgeny Byvatov, &amp; Schneider, G. (2003). Support vector machine applications in bioinformatics. Applied Bioinformatics, 2(2), 67–77.</p>
-<p>Kecman, V. (2005). Support Vector Machines – An Introduction. Support Vector Machines: Theory and Applications, 177, 1–47. https://doi.org/10.1007/10984697_1</p>
-<p>Tian, Y., Shi, Y., &amp; Liu, X. (2012). RECENT ADVANCES ON SUPPORT VECTOR MACHINES RESEARCH. Technological and Economic Development of Economy, 18(1), 5–33. https://doi.org/10.3846/20294913.2012.661205</p>
-<p>Yang, Z. R. (2004). Biological applications of support vector machines. Briefings in Bioinformatics, 5(4), 328–338. https://doi.org/10.1093/bib/5.4.328</p>
+<section id="references" class="level2 unnumbered">
+
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-brereton_2010_support" class="csl-entry" role="doc-biblioentry">
+Brereton, Richard G., and Gavin R. Lloyd. 2010. <span>“Support Vector Machines for Classification and Regression.”</span> <em>The Analyst</em> 135: 230–67. <a href="https://doi.org/10.1039/b918972f">https://doi.org/10.1039/b918972f</a>.
+</div>
+<div id="ref-evgenybyvatov_2003_support" class="csl-entry" role="doc-biblioentry">
+Byvatov, Evgeny, and Gisbert Schneider. 2003. <span>“Support Vector Machine Applications in Bioinformatics.”</span> <em>Applied Bioinformatics</em> 2 (January): 67–77.
+</div>
+<div id="ref-kecman_2005_support" class="csl-entry" role="doc-biblioentry">
+Kecman, V. 2005. <span>“Support Vector Machines – an Introduction.”</span> <em>Support Vector Machines: Theory and Applications</em> 177 (April): 1–47. <a href="https://doi.org/10.1007/10984697_1">https://doi.org/10.1007/10984697_1</a>.
+</div>
+<div id="ref-tian_2012_recent" class="csl-entry" role="doc-biblioentry">
+Tian, Yingjie, Yong Shi, and Xiaohui Liu. 2012. <span>“RECENT ADVANCES ON SUPPORT VECTOR MACHINES RESEARCH.”</span> <em>Technological and Economic Development of Economy</em> 18 (April): 5–33. <a href="https://doi.org/10.3846/20294913.2012.661205">https://doi.org/10.3846/20294913.2012.661205</a>.
+</div>
+<div id="ref-yang_2004_biological" class="csl-entry" role="doc-biblioentry">
+Yang, Z. R. 2004. <span>“Biological Applications of Support Vector Machines.”</span> <em>Briefings in Bioinformatics</em> 5 (January): 328–38. <a href="https://doi.org/10.1093/bib/5.4.328">https://doi.org/10.1093/bib/5.4.328</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
