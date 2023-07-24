@@ -1,17 +1,7 @@
 ---
 title: "Support Vector Machines"
-bibliography: references2.bib
 author: "Robert Belina"
-date: '`r Sys.Date()`'
-format: revealjs
-  html:
-    code-fold: true
-course: STA 6257 - Advance Statistical Modeling
-#bibliography: references2.bib # file contains bibtex for references
-#always_allow_html: true # this allows to get PDF with HTML features
-editor_options: 
-  markdown: 
-    wrap: sentence
+format: beamer
 ---
 
 ## Introduction

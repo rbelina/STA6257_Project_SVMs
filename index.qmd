@@ -278,12 +278,6 @@ decision_surface <- function(model, data, feature1, feature2) {
                           breaks = 0.5, color = "black", alpha = 0.5)
 }
 
-# Call the function to add the decision boundary to the SVM plot
-#final_plot <- decision_surface(svm_model, svm_data, "age", "chol")
-
-# Display the final SVM plot
-#print(final_plot)
-
 
 ```
 
