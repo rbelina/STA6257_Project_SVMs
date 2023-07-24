@@ -145,8 +145,8 @@ points(x[svmfit$index,], pch = 5, cex = 2)
 
 ```{r}
 
-install.packages('caret', repos = "http://cran.us.r-project.org")
-install.packages('e1071', repos = "http://cran.us.r-project.org")
+#install.packages('caret', repos = "http://cran.us.r-project.org")
+#install.packages('e1071', repos = "http://cran.us.r-project.org")
 library(caret)
 library(e1071)
 
@@ -155,6 +155,9 @@ set.seed(42)  # For reproducibility
 trainIndex <- createDataPartition(heart_data$target, p = 0.7, list = FALSE)
 train_data <- heart_data[trainIndex, ]
 test_data <- heart_data[-trainIndex, ]
+
+svm_model <- train(target ~ ., data = train_data, method = "svmRadial")
+
 
 predictions <- predict(svm_model, newdata = test_data)
 
@@ -171,7 +174,7 @@ test_data$target <- factor(test_data$target, levels = all_levels)
 #conf_matrix <- confusionMatrix(predictions, test_data$target)
 #print(conf_matrix)
 
-library(ggplot2)
+#library(ggplot2)
 
 ggplot(heart_data, aes(x = factor(target), fill = factor(target))) +
   geom_bar() +

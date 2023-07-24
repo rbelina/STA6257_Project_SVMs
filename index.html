@@ -293,11 +293,146 @@ Number of Support Vectors:  6</code></pre>
 <section id="data-and-vizualisation" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-vizualisation">Data and Vizualisation</h3>
 <div class="cell">
-
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('caret', repos = "http://cran.us.r-project.org")</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('e1071', repos = "http://cran.us.r-project.org")</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'caret' was built under R version 4.1.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.1.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>heart_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"heart.csv"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(heart_data<span class="sc">$</span>target, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> heart_data[trainIndex, ]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> heart_data[<span class="sc">-</span>trainIndex, ]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">train</span>(target <span class="sc">~</span> ., <span class="at">data =</span> train_data, <span class="at">method =</span> <span class="st">"svmRadial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in train.default(x, y, weights = w, ...): You are trying to do
+regression and your outcome only has two possible values Are you trying to do
+classification? If so, use a 2 level factor as your outcome column.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, <span class="at">newdata =</span> test_data)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique levels from both predicted values and target variable</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>all_levels <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(<span class="fu">levels</span>(predictions), <span class="fu">levels</span>(test_data<span class="sc">$</span>target)))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert predictions to a factor with all_levels as levels</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">factor</span>(predictions, <span class="at">levels =</span> all_levels)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the actual target variable to a factor with all_levels as levels</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>test_data<span class="sc">$</span>target <span class="ot">&lt;-</span> <span class="fu">factor</span>(test_data<span class="sc">$</span>target, <span class="at">levels =</span> all_levels)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Create a confusion matrix to evaluate the performance of the classifier.</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#conf_matrix &lt;- confusionMatrix(predictions, test_data$target)</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(conf_matrix)</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ggplot2)</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(target), <span class="at">fill =</span> <span class="fu">factor</span>(target))) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Heart Disease"</span>, <span class="at">x =</span> <span class="st">"Heart Disease"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">"Heart Disease"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Age"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_data, <span class="fu">aes</span>(<span class="at">x =</span> trestbps)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Resting Blood Pressure"</span>, <span class="at">x =</span> <span class="st">"Resting BP"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_data, <span class="fu">aes</span>(<span class="at">x =</span> chol)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"green"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Cholesterol Levels"</span>, <span class="at">x =</span> <span class="st">"Cholesterol"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> trestbps, <span class="at">color =</span> <span class="fu">factor</span>(target))) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age vs. Resting Blood Pressure"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Resting BP"</span>, <span class="at">color =</span> <span class="st">"Heart Disease"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Heart Disease"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-5.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the 'age' and 'chol' features from the testing data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>svm_data <span class="ot">&lt;-</span> test_data[, <span class="fu">c</span>(<span class="st">"sex"</span>, <span class="st">"age"</span>, <span class="st">"chol"</span>, <span class="st">"cp"</span>, <span class="st">"trestbps"</span>, <span class="st">"fbs"</span>, <span class="st">"restecg"</span>, <span class="st">"thalach"</span>, <span class="st">"exang"</span>, <span class="st">"oldpeak"</span>, <span class="st">"slope"</span>, <span class="st">"ca"</span>, <span class="st">"thal"</span>, <span class="st">"target"</span>)]  <span class="co"># Include all relevant features here</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the trained SVM model</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>svm_data<span class="sc">$</span>prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, <span class="at">newdata =</span> svm_data)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot of 'age' vs. 'chol', colored by the predicted class</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>svm_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(svm_data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> chol, <span class="at">color =</span> prediction)) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"SVM Classifier Plot"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Cholesterol Levels"</span>, <span class="at">color =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the decision boundary</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>decision_surface <span class="ot">&lt;-</span> <span class="cf">function</span>(model, data, feature1, feature2) {</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  x_min <span class="ot">&lt;-</span> <span class="fu">min</span>(data[, feature1])</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  x_max <span class="ot">&lt;-</span> <span class="fu">max</span>(data[, feature1])</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  y_min <span class="ot">&lt;-</span> <span class="fu">min</span>(data[, feature2])</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  y_max <span class="ot">&lt;-</span> <span class="fu">max</span>(data[, feature2])</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  x_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(x_min, x_max, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  y_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(y_min, y_max, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(feature1) <span class="sc">:</span><span class="er">=</span> x_grid, <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(feature2) <span class="sc">:</span><span class="er">=</span> y_grid)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  grid<span class="sc">$</span>prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> grid)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  svm_plot <span class="sc">+</span> <span class="fu">geom_contour</span>(<span class="at">data =</span> grid, <span class="fu">aes_string</span>(<span class="at">x =</span> feature1, <span class="at">y =</span> feature2, <span class="at">z =</span> <span class="st">"prediction"</span>),</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>                          <span class="at">breaks =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function to add the decision boundary to the SVM plot</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="co">#final_plot &lt;- decision_surface(svm_model, svm_data, "age", "chol")</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the final SVM plot</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(final_plot)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="results-draft" class="level3">
-<h3 class="anchored" data-anchor-id="results-draft">Results <em>draft</em></h3>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
 <p>…Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance. The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.</p>
 <p>Overall, the results highlight the capabilities of SVMs as a powerful machine learning algorithm for classification tasks. The SVM model successfully classified the target variable with high accuracy and demonstrated robustness in handling complex relationships within the data. These findings emphasize the potential of SVMs as a valuable tool for data analysis and prediction in various domains.</p>
 </section>
@@ -306,6 +441,11 @@ Number of Support Vectors:  6</code></pre>
 </section>
 <section id="conlusion" class="level3">
 <h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
+<p>In conclusion, this paper has provided a comprehensive overview of Support Vector Machines (SVMs) and their application in the field of machine learning. SVMs have proven to be a powerful and versatile algorithm for tackling classification and regression tasks. Their effectiveness in high-dimensional spaces and ability to handle cases with more features than samples make them a valuable tool in various real-world applications.</p>
+<p>Throughout the paper, we discussed the fundamental concepts of SVMs, including hyperplanes, support vectors, and the importance of maximizing the margin for better classification performance. We also explored the use of kernel functions to handle non-linear data and the significance of hyperparameter tuning to prevent overfitting and achieve optimal results.</p>
+<p>Moreover, we highlighted the advantages of SVMs, such as their memory efficiency and robustness in dealing with complex datasets. Additionally, SVMs offer the flexibility to use various kernel functions, enabling users to adapt the algorithm to different problem domains.</p>
+<p>However, we also discussed some limitations of SVMs, such as the lack of direct probability estimates and the computational expense associated with cross-validation for probability calculation. It is crucial to carefully select appropriate kernel functions and regularization terms, especially when dealing with high-dimensional data to prevent overfitting.</p>
+<p>Overall, SVMs continue to be a widely used and highly regarded algorithm in the machine learning community due to their accuracy, effectiveness, and versatility. Their ability to handle various classification tasks and perform well in both linear and non-linear scenarios makes them a valuable asset in the data scientist’s toolkit. As machine learning continues to evolve, SVMs will remain an essential component for addressing complex classification challenges in diverse applications. Further research and development in this area hold the promise of expanding SVMs’ capabilities and advancing their practical implementation in various domains.</p>
 </section>
 </section>
 <section id="references" class="level2 unnumbered">
