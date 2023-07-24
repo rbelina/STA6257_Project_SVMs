@@ -13,6 +13,7 @@ editor_options:
     wrap: sentence
 ---
 
+
 ## Introduction *add citations*
 
 Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains.
@@ -80,6 +81,7 @@ Preprocess the new data using the same steps as the training data (e.g., feature
 
 ### Data and Vizualisation
 
+
 ```{r}
 install.packages('plyr', repos = "http://cran.us.r-project.org")
 install.packages("ggplot2", repos = "http://cran.us.r-project.org")
@@ -144,6 +146,7 @@ plot(set[, -3],
 
 ```
 
+
 ### Results *draft*
 
 ...Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance.
@@ -169,3 +172,4 @@ Works Cited Brereton, Richard G., and Gavin R. Lloyd.
 R.
 "Biological Applications of Support Vector Machines." Briefings in Bioinformatics, vol.
 5, no. 4, 1 Jan. 2004, pp. 328--338, https://doi.org/10.1093/bib/5.4.328.
+
