@@ -99,6 +99,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -139,26 +140,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains. Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively. The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them (Kecman, 2005).</p>
-<p>SVMs offer several advantages over traditional classification algorithms. Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes. This margin not only aids in achieving robust and accurate predictions on unseen data but also enhances the generalization ability of the model. By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios.</p>
+<p>Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains. Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively. The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them (<span class="citation" data-cites="Kecman">(<a href="#ref-Kecman" role="doc-biblioref"><strong>Kecman?</strong></a>)</span>, 2005).</p>
+<section id="brief-introduction-to-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="brief-introduction-to-machine-learning">Brief Introduction to Machine Learning</h3>
+<p>Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.</p>
+<p>At the core of machine learning lies the importance of data. Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="onee.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Image 1 Test</figcaption><p></p>
+<p><img src="ml1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">citation</figcaption><p></p>
 </figure>
 </div>
+<p>SVMs offer several advantages over traditional classification algorithms. Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes. This margin not only aids in achieving robust and accurate predictions on unseen data but also enhances the generalization ability of the model. By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios [<span class="citation" data-cites="Tian">(<a href="#ref-Tian" role="doc-biblioref"><strong>Tian?</strong></a>)</span> et al., 2012].</p>
 <p>The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions. This enables SVMs to handle nonlinear relationships between variables without explicitly mapping them into the higher-dimensional space. By leveraging the kernel trick, SVMs efficiently capture complex decision boundaries, offering flexibility and adaptability to various data distributions. Furthermore, SVMs provide a principled approach to handle both binary and multiclass classification problems. Through techniques such as one-vs-one and one-vs-all, SVMs can extend their capabilities to accommodate multiple classes, ensuring accurate predictions across diverse scenarios.</p>
 <p>The versatility of SVMs extends beyond classification tasks, as they have also been successfully applied to regression, anomaly detection, and outlier detection problems. By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs.</p>
-<p>In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage this powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis. <span class="citation" data-cites="efr2008">(<a href="#ref-efr2008" role="doc-biblioref"><strong>efr2008?</strong></a>)</span>. Cite this paper <span class="citation" data-cites="bro2014principal">(<a href="#ref-bro2014principal" role="doc-biblioref"><strong>bro2014principal?</strong></a>)</span>.</p>
+<p>In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi$$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis [<span class="citation" data-cites="Yang">(<a href="#ref-Yang" role="doc-biblioref"><strong>Yang?</strong></a>)</span>, 2004] Cite this paper <span class="citation" data-cites="bro2014principal">(<a href="#ref-bro2014principal" role="doc-biblioref"><strong>bro2014principal?</strong></a>)</span>.</p>
 </section>
-<section id="methods-draft" class="level2">
-<h2 class="anchored" data-anchor-id="methods-draft">Methods <em>draft</em></h2>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.</p>
+<section id="definintions" class="level3">
+<h3 class="anchored" data-anchor-id="definintions">Definintions</h3>
+<p><em>Length of a Vector</em></p>
+<p>The norm of a vector x, denoted as ||x||, represents its length. The Euclidean norm formula used to compute the norm of a vector x = (x1, x2, …, xn) is as follows:</p>
+<p><span class="math display">\[
+||x||= √x21+x22+...+x2n
+\]</span></p>
+<p><em>Vector Directions</em></p>
+<p>The direction of a vector x = (x1, x2) is denoted by w and is defined as follows:</p>
+<p><span class="math inline">\(w = (x1/||x||,x2/||x||)\)</span></p>
+<p>Looking at the above, we can view the direction of the vector <em>w</em> as:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ml2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">citation</figcaption><p></p>
+</figure>
+</div>
 <p>Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks. In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.</p>
 <p>Data Preprocessing:</p>
 <p>Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary. Feature Scaling: Normalize the feature values to ensure that they have similar scales. Common scaling techniques include standardization (mean centering and scaling to unit variance) or normalization to a specific range. Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance. Data Split: Divide the dataset into training and testing subsets. The training set is used to train the SVM model, while the testing set is used for evaluating its performance. Model Training:</p>
 <p>Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand. Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid. Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel. This can be done using techniques like grid search or cross-validation. Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters. The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression). Model Evaluation:</p>
 <p>Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC). Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared. Cross-Validation: Perform k-fold cross-validation to estimate the model’s generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time. Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing dataset. Model Deployment:</p>
 <p>Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.</p>
+</section>
 <section id="paper-specific-methods-here" class="level3">
 <h3 class="anchored" data-anchor-id="paper-specific-methods-here">Paper specific methods <em>HERE</em></h3>
 </section>
@@ -178,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpRf1H46/downloaded_packages</code></pre>
+    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -187,7 +212,7 @@ The downloaded binary packages are in
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpRf1H46/downloaded_packages</code></pre>
+    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -215,7 +240,7 @@ The downloaded binary packages are in
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpRf1H46/downloaded_packages</code></pre>
+    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -235,7 +260,7 @@ The downloaded binary packages are in
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpRf1H46/downloaded_packages</code></pre>
+    /var/folders/y3/qqq090vx6r50rgcg9z2qv0k40000gn/T//RtmpBpBF1b/downloaded_packages</code></pre>
 </div>
 <details>
 <summary>Code</summary>
