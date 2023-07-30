@@ -156,21 +156,32 @@ Preprocess the new data using the same steps as the training data (e.g., feature
 
 ### Linear Support Vector Machine Classifier
 
+Support vector machines are best understood by looking at smaller sets of data, in this case, data we will formulate and incorporate ourselves. We begin by creating a dataset in two dimensions. Seed is set to random with forty observations among two classes with two variables. This will be our x matrix. For the y variable, we set it as one or negative one with ten in each class.
+
 ```{r}
 
 set.seed(19327)
 x = matrix(rnorm(80), 40, 2)
 y = rep(c(-1, 1), c(10, 10))
 x[y == 1,] = x[y == 1,] + 1
-plot(x, col = y + 3, pch = 19)
+plot(x, col = y + 3, pch = 20)
 
+```
+Following, we load the e1071 library which contains the actual support vector machine function. 
+```{r}
 library(e1071)
+```
+With our newly created data, we next create the DF, request the svm, and set the variables as non-standardized.
+```{r}
 
 dat = data.frame(x, y = as.factor(y))
-svmfit = svm(y ~ ., data = dat, kernel = "linear", cost = 10, scale = FALSE)
-print(svmfit)
+sft = svm(y ~ ., data = dat, kernel = "linear", cost = 10, scale = FALSE)
+```
+We see below by printing the 
+```{r}
+print(sft)
 
-plot(svmfit, dat)
+plot(sft, dat)
 
 make.grid = function(x, n = 105) {
   grange = apply(x, 2, range)
@@ -182,17 +193,17 @@ make.grid = function(x, n = 105) {
 xgrid = make.grid(x)
 xgrid[1:10,]
 
-ygrid = predict(svmfit, xgrid)
+ygrid = predict(sft, xgrid)
 plot(xgrid, col = c("green","blue")[as.numeric(ygrid)], pch = 20, cex = .2)
 points(x, col = y + 3, pch = 19)
-points(x[svmfit$index,], pch = 5, cex = 2)
+points(x[sft$index,], pch = 5, cex = 2)
 
-beta = drop(t(svmfit$coefs)%*%x[svmfit$index,])
-beta0 = svmfit$rho
+beta = drop(t(sft$coefs)%*%x[sft$index,])
+beta0 = sft$rho
 
 plot(xgrid, col = c("green", "blue")[as.numeric(ygrid)], pch = 20, cex = .2)
 points(x, col = y + 3, pch = 19)
-points(x[svmfit$index,], pch = 5, cex = 2)
+points(x[sft$index,], pch = 5, cex = 2)
 abline(beta0 / beta[2], -beta[1] / beta[2])
 abline((beta0 - 1) / beta[2], -beta[1] / beta[2], lty = 2)
 abline((beta0 + 1) / beta[2], -beta[1] / beta[2], lty = 2)
@@ -236,7 +247,6 @@ contour(px1, px2, matrix(func, 69, 99), level = 0, add = TRUE)
 contour(px1, px2, matrix(func, 69, 99), level = 0.5, add = TRUE, col = "green", lwd = 2)
 
 ```
-
 
 ```{r}
 
