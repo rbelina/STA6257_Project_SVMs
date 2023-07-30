@@ -20,8 +20,6 @@ Support Vector Machines (SVMs) have emerged as a powerful and versatile machine 
 Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively.
 The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
-### Brief Introduction to Machine Learning
-
 Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.
 
 At the core of machine learning lies the importance of data.
@@ -50,7 +48,7 @@ By understanding the underlying principles and techniques of SVMs, researchers a
 
 To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
 
-### Definintions
+### Definitions
 
 *Length of a Vector*
 
@@ -71,10 +69,55 @@ Looking at the above, we can view the direction of the vector *w* as:
 
 ![citation](ml2.png)
 
+### Working with Linear Data
+
+A more straightforward approach to understanding SVMs and their capabilities can be understood through illustration.
+Consider a scenario where we have two distinct categories, namely "blue" and "yellow" and our dataset consists of two features, denoted as "x" and "y." Our objective is to develop a classifier that, when given a set of (x, y) coordinates, accurately predicts whether the point belongs to the "yellow" or "blue" category.
+To visualize this, we represent our labeled training data on a two-dimensional plane.
+
+![](bb.png){width="346"}
+
+The support vector machine will take this data and interpret a hyperplane--here in this dimension will be a line--which will separate the data points.
+This separator is called the *decision boundary.* The decision is made as to whatever is on each side is either yellow or blue:
+
+![](cc.png){width="440"}
+
+### Working with Non-Linear Data
+
+When working with non-linear data, we are often presented with more complex data sets with composite data points.
+One such example being:
+
+![](images/dd.png){width="393"}
+
+The solution is to add a third dimension, beyond only *x* and *y*:
+
+$z = x² + y²$
+
+Our new three dimensional space can now be viewed as:
+
+![](images/Screen%20Shot%202023-07-30%20at%206.35.32%20PM.png){width="394"}
+
+The new hyperplane for this three-dimensional dataset can now be viewed in two dimensions, from *below,* as:
+
+![](images/Screen%20Shot%202023-07-30%20at%206.42.55%20PM.png){width="455"}
+
+### Working with Kernel
+
+So far, we have explored a method to classify nonlinear data by intelligently mapping our space to a higher dimension.
+However, performing this transformation can become computationally expensive, as it involves numerous new dimensions, each with potentially intricate calculations.
+Conducting this process for every vector in the dataset can be quite laborious, so it would be advantageous to discover a more cost-effective solution, hence the so-called kernel trick.
+Without incorporating the exact vectors, SVM will use the dot products between the dimensions, thus avoiding the need to calculate new dimensions.
+
+*Define the new space*
+
+$z = x^2 + y^2$
+
+*Define the dot product within this space*
+
+![](aa.png)
+
 Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks.
 In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.
-
-Data Preprocessing:
 
 Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary.
 Feature Scaling: Normalize the feature values to ensure that they have similar scales.
@@ -150,7 +193,6 @@ abline((beta0 + 1) / beta[2], -beta[1] / beta[2], lty = 2)
 
 ```
 
-
 ### Non-Linear Support Vector Machine Classifier
 
 ```{r}
@@ -188,7 +230,6 @@ contour(px1, px2, matrix(func, 69, 99), level = 0, add = TRUE)
 contour(px1, px2, matrix(func, 69, 99), level = 0.5, add = TRUE, col = "green", lwd = 2)
 
 ```
-
 
 ### Data and Vizualisation
 

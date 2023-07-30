@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robert Belina">
-<meta name="dcterms.date" content="2023-07-24">
+<meta name="dcterms.date" content="2023-07-30">
 
 <title>Support Vector Machines</title>
 <style>
@@ -147,7 +147,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 24, 2023</p>
+      <p class="date">July 30, 2023</p>
     </div>
   </div>
   
@@ -160,8 +160,6 @@ div.csl-indent {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains. Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively. The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them <span class="citation" data-cites="kecman_2005_support">(<a href="#ref-kecman_2005_support" role="doc-biblioref">Kecman 2005</a>)</span>.</p>
-<section id="brief-introduction-to-machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="brief-introduction-to-machine-learning">Brief Introduction to Machine Learning</h3>
 <p>Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.</p>
 <p>At the core of machine learning lies the importance of data. Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -175,12 +173,11 @@ div.csl-indent {
 <p>The versatility of SVMs extends beyond classification tasks, as they have also been successfully applied to regression, anomaly detection, and outlier detection problems. By employing support vector regression (SVR), SVMs can capture nonlinear relationships in continuous variables, making them well-suited for prediction tasks involving numerical outputs <span class="citation" data-cites="brereton_2010_support">(<a href="#ref-brereton_2010_support" role="doc-biblioref">Brereton and Lloyd 2010</a>)</span>.</p>
 <p>In this review, we aim to provide an in-depth exploration of Support Vector Machines, covering their fundamental concepts, mathematical foundations, training algorithms, and diverse applications across various fields. By understanding the underlying principles and techniques of SVMs, researchers and practitioners can effectively leverage thi$$s powerful tool to tackle complex classification and regression problems, ultimately leading to enhanced predictive accuracy and insightful data analysis <span class="citation" data-cites="yang_2004_biological">(<a href="#ref-yang_2004_biological" role="doc-biblioref">Yang 2004</a>)</span>.</p>
 </section>
-</section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <p>To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.</p>
-<section id="definintions" class="level3">
-<h3 class="anchored" data-anchor-id="definintions">Definintions</h3>
+<section id="definitions" class="level3">
+<h3 class="anchored" data-anchor-id="definitions">Definitions</h3>
 <p><em>Length of a Vector</em></p>
 <p>The norm of a vector x, denoted as ||x||, represents its length. The Euclidean norm formula used to compute the norm of a vector x = (x1, x2, …, xn) is as follows:</p>
 <p><span class="math display">\[
@@ -196,8 +193,33 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">citation</figcaption><p></p>
 </figure>
 </div>
+</section>
+<section id="working-with-linear-data" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-linear-data">Working with Linear Data</h3>
+<p>A more straightforward approach to understanding SVMs and their capabilities can be understood through illustration. Consider a scenario where we have two distinct categories, namely “blue” and “yellow” and our dataset consists of two features, denoted as “x” and “y.” Our objective is to develop a classifier that, when given a set of (x, y) coordinates, accurately predicts whether the point belongs to the “yellow” or “blue” category. To visualize this, we represent our labeled training data on a two-dimensional plane.</p>
+<p><img src="bb.png" class="img-fluid" width="346"></p>
+<p>The support vector machine will take this data and interpret a hyperplane–here in this dimension will be a line–which will separate the data points. This separator is called the <em>decision boundary.</em> The decision is made as to whatever is on each side is either yellow or blue:</p>
+<p><img src="cc.png" class="img-fluid" width="440"></p>
+</section>
+<section id="working-with-non-linear-data" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-non-linear-data">Working with Non-Linear Data</h3>
+<p>When working with non-linear data, we are often presented with more complex data sets with composite data points. One such example being:</p>
+<p><img src="images/dd.png" class="img-fluid" width="393"></p>
+<p>The solution is to add a third dimension, beyond only <em>x</em> and <em>y</em>:</p>
+<p><span class="math inline">\(z = x² + y²\)</span></p>
+<p>Our new three dimensional space can now be viewed as:</p>
+<p><img src="images/Screen%20Shot%202023-07-30%20at%206.35.32%20PM.png" class="img-fluid" width="394"></p>
+<p>The new hyperplane for this three-dimensional dataset can now be viewed in two dimensions, from <em>below,</em> as:</p>
+<p><img src="images/Screen%20Shot%202023-07-30%20at%206.42.55%20PM.png" class="img-fluid" width="455"></p>
+</section>
+<section id="working-with-kernel" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-kernel">Working with Kernel</h3>
+<p>So far, we have explored a method to classify nonlinear data by intelligently mapping our space to a higher dimension. However, performing this transformation can become computationally expensive, as it involves numerous new dimensions, each with potentially intricate calculations. Conducting this process for every vector in the dataset can be quite laborious, so it would be advantageous to discover a more cost-effective solution, hence the so-called kernel trick. Without incorporating the exact vectors, SVM will use the dot products between the dimensions, thus avoiding the need to calculate new dimensions.</p>
+<p><em>Define the new space</em></p>
+<p><span class="math inline">\(z = x^2 + y^2\)</span></p>
+<p><em>Define the dot product within this space</em></p>
+<p><img src="aa.png" class="img-fluid"></p>
 <p>Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks. In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.</p>
-<p>Data Preprocessing:</p>
 <p>Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary. Feature Scaling: Normalize the feature values to ensure that they have similar scales. Common scaling techniques include standardization (mean centering and scaling to unit variance) or normalization to a specific range. Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance. Data Split: Divide the dataset into training and testing subsets. The training set is used to train the SVM model, while the testing set is used for evaluating its performance. Model Training:</p>
 <p>Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand. Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid. Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel. This can be done using techniques like grid search or cross-validation. Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters. The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression). Model Evaluation:</p>
 <p>Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC). Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared. Cross-Validation: Perform k-fold cross-validation to estimate the model’s generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time. Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing dataset. Model Deployment:</p>
