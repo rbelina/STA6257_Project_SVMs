@@ -152,7 +152,7 @@ Once the SVM model has been trained and evaluated, it can be deployed to make pr
 Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
 [@benhur_2008_support]
 
-## Analysis and Results
+## Analysis and Data Visualization
 
 ### Linear Support Vector Machine Classifier
 
@@ -237,94 +237,8 @@ contour(px1, px2, matrix(func, 69, 99), level = 0.5, add = TRUE, col = "green", 
 
 ```
 
-### Data and Vizualisation
 
 ```{r}
-
-#install.packages('caret', repos = "http://cran.us.r-project.org")
-#install.packages('e1071', repos = "http://cran.us.r-project.org")
-library(caret)
-library(e1071)
-
-heart_data <- read.csv("heart.csv")
-set.seed(42)  # For reproducibility
-trainIndex <- createDataPartition(heart_data$target, p = 0.7, list = FALSE)
-train_data <- heart_data[trainIndex, ]
-test_data <- heart_data[-trainIndex, ]
-
-svm_model <- train(target ~ ., data = train_data, method = "svmRadial")
-
-
-predictions <- predict(svm_model, newdata = test_data)
-
-# Get unique levels from both predicted values and target variable
-all_levels <- unique(c(levels(predictions), levels(test_data$target)))
-
-# Convert predictions to a factor with all_levels as levels
-predictions <- factor(predictions, levels = all_levels)
-
-# Convert the actual target variable to a factor with all_levels as levels
-test_data$target <- factor(test_data$target, levels = all_levels)
-
-# Step 6: Create a confusion matrix to evaluate the performance of the classifier.
-#conf_matrix <- confusionMatrix(predictions, test_data$target)
-#print(conf_matrix)
-
-#library(ggplot2)
-
-ggplot(heart_data, aes(x = factor(target), fill = factor(target))) +
-  geom_bar() +
-  labs(title = "Distribution of Heart Disease", x = "Heart Disease", y = "Count") +
-  scale_fill_discrete(name = "Heart Disease", labels = c("No", "Yes"))
-
-
-ggplot(heart_data, aes(x = age)) +
-  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
-  labs(title = "Distribution of Age", x = "Age", y = "Count")
-
-ggplot(heart_data, aes(x = trestbps)) +
-  geom_histogram(binwidth = 5, fill = "orange", color = "black") +
-  labs(title = "Distribution of Resting Blood Pressure", x = "Resting BP", y = "Count")
-
-ggplot(heart_data, aes(x = chol)) +
-  geom_histogram(binwidth = 10, fill = "green", color = "black") +
-  labs(title = "Distribution of Cholesterol Levels", x = "Cholesterol", y = "Count")
-
-ggplot(heart_data, aes(x = age, y = trestbps, color = factor(target))) +
-  geom_point() +
-  labs(title = "Age vs. Resting Blood Pressure", x = "Age", y = "Resting BP", color = "Heart Disease") +
-  scale_color_discrete(name = "Heart Disease", labels = c("No", "Yes"))
-
-
-# Extract the 'age' and 'chol' features from the testing data
-svm_data <- test_data[, c("sex", "age", "chol", "cp", "trestbps", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal", "target")]  # Include all relevant features here
-
-# Make predictions using the trained SVM model
-svm_data$prediction <- predict(svm_model, newdata = svm_data)
-
-# Create a scatter plot of 'age' vs. 'chol', colored by the predicted class
-svm_plot <- ggplot(svm_data, aes(x = age, y = chol, color = prediction)) +
-  geom_point() +
-  labs(title = "SVM Classifier Plot", x = "Age", y = "Cholesterol Levels", color = "Prediction") +
-  scale_color_manual(values = c("red", "blue")) +
-  theme_minimal()
-
-# Draw the decision boundary
-decision_surface <- function(model, data, feature1, feature2) {
-  x_min <- min(data[, feature1])
-  x_max <- max(data[, feature1])
-  y_min <- min(data[, feature2])
-  y_max <- max(data[, feature2])
-
-  x_grid <- seq(x_min, x_max, length.out = 100)
-  y_grid <- seq(y_min, y_max, length.out = 100)
-  grid <- expand.grid(!!rlang::sym(feature1) := x_grid, !!rlang::sym(feature2) := y_grid)
-  grid$prediction <- predict(model, newdata = grid)
-
-  svm_plot + geom_contour(data = grid, aes_string(x = feature1, y = feature2, z = "prediction"),
-                          breaks = 0.5, color = "black", alpha = 0.5)
-}
-
 
 ```
 
