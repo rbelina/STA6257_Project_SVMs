@@ -25,7 +25,7 @@ Machine learning is the process of enabling computers to take actions by providi
 At the core of machine learning lies the importance of data.
 Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.
 
-![citation](ml1.png)
+![citation breteton](ml1.png)
 
 SVMs offer several advantages over traditional classification algorithms.
 Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes.
@@ -67,13 +67,13 @@ $w = (x1/||x||,x2/||x||)$
 
 Looking at the above, we can view the direction of the vector *w* as:
 
-![citation](ml2.png)
+![[@burges_1998_a]](ml2.png)
 
 ### Working with Linear Data
 
 A more straightforward approach to understanding SVMs and their capabilities can be understood through illustration.
 Consider a scenario where we have two distinct categories, namely "blue" and "yellow" and our dataset consists of two features, denoted as "x" and "y." Our objective is to develop a classifier that, when given a set of (x, y) coordinates, accurately predicts whether the point belongs to the "yellow" or "blue" category.
-To visualize this, we represent our labeled training data on a two-dimensional plane.
+To visualize this, we represent our labeled training data on a two-dimensional plane [@mammone_2009_support]
 
 ![](bb.png){width="346"}
 
@@ -103,10 +103,10 @@ The new hyperplane for this three-dimensional dataset can now be viewed in two d
 
 ### Working with Kernel
 
-So far, we have explored a method to classify nonlinear data by intelligently mapping our space to a higher dimension.
+Above, we have explored a method to classify linear and nonlinear data by intelligently mapping our space to a higher dimension.
 However, performing this transformation can become computationally expensive, as it involves numerous new dimensions, each with potentially intricate calculations.
 Conducting this process for every vector in the dataset can be quite laborious, so it would be advantageous to discover a more cost-effective solution, hence the so-called kernel trick.
-Without incorporating the exact vectors, SVM will use the dot products between the dimensions, thus avoiding the need to calculate new dimensions.
+Without incorporating the exact vectors, SVM will use the dot products between the dimensions, thus avoiding the need to calculate new dimensions [@benhur_2008_support]
 
 *Define the new space*
 
@@ -116,8 +116,14 @@ $z = x^2 + y^2$
 
 ![](aa.png)
 
+We now have a less computationally expensive method to classify our data by utilizing various kernels to expand the feature space and accommodate non-linear boundaries between classes.
+Among the common kernel types used are: polynomial kernels, radial basis kernels, and linear kernels, the latter being equivalent to support vector classifiers.
+In summary, using the kernel method, the data is transformed to align with a linear hyperplane, enabling effective classification of the data.
+
+### Benefits and Drawbacks
+
 Support Vector Machines (SVMs) are a robust machine learning algorithm used for classification and regression tasks.
-In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation.
+In this section, we describe the key steps involved in implementing SVMs, including data preprocessing, model training, and model evaluation, and some disadvantages to SVM.
 
 Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary.
 Feature Scaling: Normalize the feature values to ensure that they have similar scales.
@@ -125,7 +131,7 @@ Common scaling techniques include standardization (mean centering and scaling to
 Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance.
 Data Split: Divide the dataset into training and testing subsets.
 The training set is used to train the SVM model, while the testing set is used for evaluating its performance.
-Model Training:
+[@sharma_2016_an]
 
 Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand.
 Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.
@@ -133,7 +139,7 @@ Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as th
 This can be done using techniques like grid search or cross-validation.
 Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters.
 The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression).
-Model Evaluation:
+[@benhur_2008_support]
 
 Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC).
 Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared.
@@ -141,10 +147,10 @@ Cross-Validation: Perform k-fold cross-validation to estimate the model's genera
 This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset.
 Repeat this process k times, rotating the evaluation subset each time.
 Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing dataset.
-Model Deployment:
 
 Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data.
 Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
+[@benhur_2008_support]
 
 ## Analysis and Results
 
