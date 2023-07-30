@@ -156,7 +156,11 @@ Preprocess the new data using the same steps as the training data (e.g., feature
 
 ### Linear Support Vector Machine Classifier
 
-Support vector machines are best understood by looking at smaller sets of data, in this case, data we will formulate and incorporate ourselves. We begin by creating a dataset in two dimensions. Seed is set to random with forty observations among two classes with two variables. This will be our x matrix. For the y variable, we set it as one or negative one with ten in each class.
+Support vector machines are best understood by looking at smaller sets of data, in this case, data we will formulate and incorporate ourselves.
+We begin by creating a dataset in two dimensions.
+Seed is set to random with forty observations among two classes with two variables.
+This will be our x matrix.
+For the y variable, we set it as one or negative one with ten in each class.
 
 ```{r}
 
@@ -167,21 +171,49 @@ x[y == 1,] = x[y == 1,] + 1
 plot(x, col = y + 3, pch = 20)
 
 ```
-Following, we load the e1071 library which contains the actual support vector machine function. 
+
+Following, we load the e1071 library which contains the actual support vector machine function.
+
 ```{r}
 library(e1071)
 ```
+
 With our newly created data, we next create the DF, request the svm, and set the variables as non-standardized.
+
 ```{r}
 
 dat = data.frame(x, y = as.factor(y))
 sft = svm(y ~ ., data = dat, kernel = "linear", cost = 10, scale = FALSE)
 ```
-We see below by printing the 
+
+Below we use the print function to see the number of support vectors, here we have twenty-three.
+
 ```{r}
 print(sft)
 
+```
+
+Plotting the SVM to visualize the boundary.
+
+```{r}
+
 plot(sft, dat)
+
+```
+
+R's ability to plot SVMs is somewhat rudimentary, however, we can attempt to create a better visualization using the expand.grid function, creating our own classification code and visualizing a better decision boundary.
+Below, we see the support points are now indicated for us.
+As evident from the process, the grid follows a sequential path, starting with the 1st coordinate while keeping the 2nd coordinate fixed.
+
+Upon creating the lattice, predictions are generated at each lattice point.
+To achieve this, the new data 'xgrid' is utilized in conjunction with the 'predict' function, resulting in the response 'ygrid'.
+Subsequently, the points are plotted and color-coded based on their classification, thus rendering the decision boundary clearly visible.
+Additionally, the original points are overlaid on this plot using the 'points' function.
+
+It is noteworthy that the 'svmfit' model includes a component known as 'index,' indicating the support points.
+These support points can be included in the plot by making use of the 'points' function once again.
+
+```{r}
 
 make.grid = function(x, n = 105) {
   grange = apply(x, 2, range)
@@ -198,6 +230,18 @@ plot(xgrid, col = c("green","blue")[as.numeric(ygrid)], pch = 20, cex = .2)
 points(x, col = y + 3, pch = 19)
 points(x[sft$index,], pch = 5, cex = 2)
 
+```
+
+We see above, our support points are marked: those points being too close or on the wrong side of the decision boundary.
+Next, we can attempt to find the coefficients more efficiently using the beta functions.
+With all points on the grid once again, we can use the coefficients to render the decision boundary.
+The beta function in R will use this equation to accomplish this:
+
+$β_0 + β_1 * x1 + β_2 *x2 = 0$
+
+```{r}
+
+
 beta = drop(t(sft$coefs)%*%x[sft$index,])
 beta0 = sft$rho
 
@@ -209,6 +253,8 @@ abline((beta0 - 1) / beta[2], -beta[1] / beta[2], lty = 2)
 abline((beta0 + 1) / beta[2], -beta[1] / beta[2], lty = 2)
 
 ```
+
+From the above, we can see that a few of the support points are precisely on the margin, with some showing inside the margin.
 
 ### Non-Linear Support Vector Machine Classifier
 

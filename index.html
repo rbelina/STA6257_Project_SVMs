@@ -266,7 +266,7 @@ div.csl-indent {
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sft <span class="ot">=</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> dat, <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">cost =</span> <span class="dv">10</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We see below by printing the</p>
+<p>Below we use the print function to see the number of support vectors, here we have twenty-three.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -285,13 +285,21 @@ Parameters:
 
 Number of Support Vectors:  23</code></pre>
 </div>
+</div>
+<p>Plotting the SVM to visualize the boundary.</p>
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sft, dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
+</div>
+<p>R’s ability to plot SVMs is somewhat rudimentary, however, we can attempt to create a better visualization using the expand.grid function, creating our own classification code and visualizing a better decision boundary. Below, we see the support points are now indicated for us. As evident from the process, the grid follows a sequential path, starting with the 1st coordinate while keeping the 2nd coordinate fixed.</p>
+<p>Upon creating the lattice, predictions are generated at each lattice point. To achieve this, the new data ‘xgrid’ is utilized in conjunction with the ‘predict’ function, resulting in the response ‘ygrid’. Subsequently, the points are plotted and color-coded based on their classification, thus rendering the decision boundary clearly visible. Additionally, the original points are overlaid on this plot using the ‘points’ function.</p>
+<p>It is noteworthy that the ‘svmfit’ model includes a component known as ‘index,’ indicating the support points. These support points can be included in the plot by making use of the ‘points’ function once again.</p>
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>make.grid <span class="ot">=</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">105</span>) {</span>
@@ -325,8 +333,12 @@ Number of Support Vectors:  23</code></pre>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x[sft<span class="sc">$</span>index,], <span class="at">pch =</span> <span class="dv">5</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
+</div>
+<p>We see above, our support points are marked: those points being too close or on the wrong side of the decision boundary. Next, we can attempt to find the coefficients more efficiently using the beta functions. With all points on the grid once again, we can use the coefficients to render the decision boundary. The beta function in R will use this equation to accomplish this:</p>
+<p><span class="math inline">\(β_0 + β_1 * x1 + β_2 *x2 = 0\)</span></p>
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">drop</span>(<span class="fu">t</span>(sft<span class="sc">$</span>coefs)<span class="sc">%*%</span>x[sft<span class="sc">$</span>index,])</span>
@@ -340,9 +352,10 @@ Number of Support Vectors:  23</code></pre>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>((beta0 <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> beta[<span class="dv">2</span>], <span class="sc">-</span>beta[<span class="dv">1</span>] <span class="sc">/</span> beta[<span class="dv">2</span>], <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>From the above, we can see that a few of the support points are precisely on the margin, with some showing inside the margin.</p>
 </section>
 <section id="non-linear-support-vector-machine-classifier" class="level3">
 <h3 class="anchored" data-anchor-id="non-linear-support-vector-machine-classifier">Non-Linear Support Vector Machine Classifier</h3>
@@ -365,7 +378,7 @@ Number of Support Vectors:  23</code></pre>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
@@ -380,7 +393,7 @@ Number of Support Vectors:  23</code></pre>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
@@ -396,7 +409,7 @@ Number of Support Vectors:  23</code></pre>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(px1, px2, <span class="fu">matrix</span>(func, <span class="dv">69</span>, <span class="dv">99</span>), <span class="at">level =</span> <span class="fl">0.5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
