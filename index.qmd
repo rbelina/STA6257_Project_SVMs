@@ -201,6 +201,8 @@ plot(sft, dat)
 
 ```
 
+![](images/Screen%20Shot%202023-07-30%20at%208.00.15%20PM.png)
+
 R's ability to plot SVMs is somewhat rudimentary, however, we can attempt to create a better visualization using the expand.grid function, creating our own classification code and visualizing a better decision boundary.
 Below, we see the support points are now indicated for us.
 As evident from the process, the grid follows a sequential path, starting with the 1st coordinate while keeping the 2nd coordinate fixed.
