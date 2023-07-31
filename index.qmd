@@ -309,7 +309,7 @@ contour(px1, px2, matrix(func, 69, 99), level = 0.5, add = TRUE, col = "green", 
 
 ### Results
 
-From the above model, we found that the non-linear SVM was very similar to the the Bayes decision boundary, showcasing support vector machine's ability as a classification tool.
+From the above model, we found that the non-linear SVM was very similar to the Bayes decision boundary, showcasing support vector machine's ability as a classification tool.
 
 Additionally, the SVM model was tested on an independent test data set to assess its generalization performance.
 The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.
