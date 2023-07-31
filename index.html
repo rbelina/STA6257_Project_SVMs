@@ -360,6 +360,7 @@ Number of Support Vectors:  23</code></pre>
 </section>
 <section id="non-linear-support-vector-machine-classifier" class="level3">
 <h3 class="anchored" data-anchor-id="non-linear-support-vector-machine-classifier">Non-Linear Support Vector Machine Classifier</h3>
+<p>For non-linear classification, we will use a dataset from the Elements of Statistical Learning text, specifically the ElemStat Mixture data <em>cite hastie trevor.</em> We begin by loading the data and assigning the training data from the data frame.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -374,56 +375,68 @@ Number of Support Vectors:  23</code></pre>
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x, y)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(ESL.mixture)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(ESL.mixture)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="fu">factor</span>(y), x)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">svm</span>(<span class="fu">factor</span>(y) <span class="sc">~</span> ., <span class="at">data =</span> dat, <span class="at">scale =</span> <span class="cn">FALSE</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, <span class="at">cost =</span> <span class="dv">5</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>xgrid <span class="ot">=</span> <span class="fu">expand.grid</span>(<span class="at">X1 =</span> px1, <span class="at">X2 =</span> px2)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ygrid <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid)     </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xgrid, <span class="at">col =</span> <span class="fu">as.numeric</span>(ygrid), <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">2</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>func <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid, <span class="at">decision.values =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>func <span class="ot">=</span> <span class="fu">attributes</span>(func)<span class="sc">$</span>decision</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>xgrid <span class="ot">=</span> <span class="fu">expand.grid</span>(<span class="at">X1 =</span> px1, <span class="at">X2 =</span> px2)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ygrid <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xgrid, <span class="at">col =</span> <span class="fu">as.numeric</span>(ygrid), <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">2</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(px1, px2, <span class="fu">matrix</span>(func, <span class="dv">69</span>, <span class="dv">99</span>), <span class="at">level =</span> <span class="dv">0</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(px1, px2, <span class="fu">matrix</span>(func, <span class="dv">69</span>, <span class="dv">99</span>), <span class="at">level =</span> <span class="fl">0.5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p>Plotting the data and confirming its dimension.</p>
 <div class="cell">
-
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Looking at the data above, we can see a large degree of overlay. We will attempt to make sense of the data further. The code below shows y conversion to factor and the SVM fitting. Our kernel is radial and the cost is set to 5.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="fu">factor</span>(y), x)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">svm</span>(<span class="fu">factor</span>(y) <span class="sc">~</span> ., <span class="at">data =</span> dat, <span class="at">scale =</span> <span class="cn">FALSE</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, <span class="at">cost =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The code below creates the grid for our predictions. Once again using the expand.grid function and predicting classification.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>xgrid <span class="ot">=</span> <span class="fu">expand.grid</span>(<span class="at">X1 =</span> px1, <span class="at">X2 =</span> px2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ygrid <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid)     </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xgrid, <span class="at">col =</span> <span class="fu">as.numeric</span>(ygrid), <span class="at">pch =</span> <span class="dv">18</span>, <span class="at">cex =</span> .<span class="dv">2</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above plot shows the non-linear decision boundary wrapping under the red data points and winding up around the black.</p>
+<p>Following, we can fine-tune this visualization by employing a Bayes decision boundary: a boundary that separates different classes in a data set based on the Bayes’ theorem. This is the optimal type of decision boundary, limiting misclassifications rates and being the best achievable boundary for our data set.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>func <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid, <span class="at">decision.values =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>func <span class="ot">=</span> <span class="fu">attributes</span>(func)<span class="sc">$</span>decision</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>xgrid <span class="ot">=</span> <span class="fu">expand.grid</span>(<span class="at">X1 =</span> px1, <span class="at">X2 =</span> px2)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ygrid <span class="ot">=</span> <span class="fu">predict</span>(fit, xgrid)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xgrid, <span class="at">col =</span> <span class="fu">as.numeric</span>(ygrid), <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">2</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, <span class="at">col =</span> y <span class="sc">+</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(px1, px2, <span class="fu">matrix</span>(func, <span class="dv">69</span>, <span class="dv">99</span>), <span class="at">level =</span> <span class="dv">0</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(px1, px2, <span class="fu">matrix</span>(func, <span class="dv">69</span>, <span class="dv">99</span>), <span class="at">level =</span> <span class="fl">0.5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
 <section id="results" class="level3">
 <h3 class="anchored" data-anchor-id="results">Results</h3>
-<p>…Additionally, the SVM model was tested on an independent test dataset to assess its generalization performance. The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.</p>
+<p>From the above model, we found that the non-linear SVM was very similar to the the Bayes decision boundary, showcasing support vector machine’s ability as a classification tool.</p>
+<p>Additionally, the SVM model was tested on an independent test data set to assess its generalization performance. The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.</p>
 <p>Overall, the results highlight the capabilities of SVMs as a powerful machine learning algorithm for classification tasks. The SVM model successfully classified the target variable with high accuracy and demonstrated robustness in handling complex relationships within the data. These findings emphasize the potential of SVMs as a valuable tool for data analysis and prediction in various domains.</p>
-</section>
-<section id="statistical-modeling" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
 </section>
 <section id="conlusion" class="level3">
 <h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
