@@ -25,7 +25,7 @@ Machine learning is the process of enabling computers to take actions by providi
 At the core of machine learning lies the importance of data.
 Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.
 
-![citation breteton](ml1.png)
+![[@brereton_2010_support]](ml1.png)
 
 SVMs offer several advantages over traditional classification algorithms.
 Unlike methods that solely focus on minimizing training errors, SVMs are designed to maximize the margin between classes.
