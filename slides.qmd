@@ -114,14 +114,38 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Classification algorithm\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.20.16%20PM.png){width="657"}
--   Using the cricket player data set \
+-   Using the cricket player data set\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.25.00%20PM.png){width="401"}
 -   Drawing the decision boundary\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.27.42%20PM.png){width="373"}
 -   Margins matter\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.42.36%20PM.png){width="363"}
 -   The correct decision boundary\
-    ![](images/Screen%20Shot%202023-08-01%20at%2010.43.34%20PM.png){width="378"}
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.43.34%20PM.png){width="378"}\
+    ![](images/Screen%20Shot%202023-08-01%20at%2011.05.09%20PM.png){width="378"}
+
+## Working with Non-Linear Data and the Kernel Trick {.scrollable}
+
+When working with non-linear data, we are often presented with more complex data sets with composite data points. One such example being:
+
+![](images/dd.png){width="393"}
+
+The solution is to add a third dimension, beyond only *x* and *y*:
+
+$z = x² + y²$
+
+Our new three dimensional space can now be viewed as:
+
+![](images/Screen%20Shot%202023-07-30%20at%206.35.32%20PM.png){width="394"}
+
+The new hyperplane for this three-dimensional dataset can now be viewed in two dimensions, from *below,* as:
+
+![](images/Screen%20Shot%202023-07-30%20at%206.42.55%20PM.png){width="455"}
+
+-   Separation with a simple line is impossible
+
+-   A higher dimension is need\
+    ![](images/Screen%20Shot%202023-08-01%20at%2011.01.30%20PM.png){width="619"}
 
 ## Analysis and Results
 
