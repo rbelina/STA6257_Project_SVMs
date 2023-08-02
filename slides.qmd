@@ -261,3 +261,27 @@ contour(px1, px2, matrix(func, 69, 99), level = 0.5, add = TRUE, col = "green", 
 -   These findings emphasize the potential of SVMs as a valuable tool for data analysis and prediction in various domains.
 
 ## References {.scrollable}
+
+Works Cited
+
+Ben-Hur, Asa, et al. "Support Vector Machines and Kernels for Computational Biology." *PLoS Computational Biology*, edited by Fran Lewitter, vol. 4, no. 10, Oct. 2008, p. e1000173, https://doi.org/10.1371/journal.pcbi.1000173.
+
+Brereton, Richard G., and Gavin R. Lloyd. "Support Vector Machines for Classification and Regression." *The Analyst*, vol. 135, no. 2, 2010, pp. 230--67, https://doi.org/10.1039/b918972f.
+
+Burges, Christopher J. C. "A Tutorial on Support Vector Machines for Pattern Recognition." *Data Mining and Knowledge Discovery*, vol. 2, no. 2, 1998, pp. 121--67, https://doi.org/10.1023/a:1009715923555.
+
+Evgeny Byvatov, and Gisbert Schneider. "Support Vector Machine Applications in Bioinformatics." *Applied Bioinformatics*, vol. 2, no. 2, Jan. 2003, pp. 67--77.
+
+Hastie, Trevor, et al. *The Elements of Statistical Learning : Data Mining, Inference, and Prediction*. Springer, 2001.
+
+Kecman, V. "Support Vector Machines -- an Introduction." *Support Vector Machines: Theory and Applications*, vol. 177, Apr. 2005, pp. 1--47, https://doi.org/10.1007/10984697_1.
+
+Mammone, Alessia, et al. "Support Vector Machines." *Wiley Interdisciplinary Reviews: Computational Statistics*, vol. 1, no. 3, Nov. 2009, pp. 283--89, https://doi.org/10.1002/wics.49.
+
+Noble, William S. "What Is a Support Vector Machine?" *Nature Biotechnology*, vol. 24, no. 12, Dec. 2006, pp. 1565--67, https://doi.org/10.1038/nbt1206-1565.
+
+Sharma, Vikas, et al. *An Assessment of Support Vector Machine Kernel Parameters Using Remotely Sensed Satellite Data*. May 2016, https://doi.org/10.1109/rteict.2016.7808096. Accessed 30 July 2023.
+
+Tian, Yingjie, et al. "RECENT ADVANCES on SUPPORT VECTOR MACHINES RESEARCH." *Technological and Economic Development of Economy*, vol. 18, no. 1, Apr. 2012, pp. 5--33, https://doi.org/10.3846/20294913.2012.661205.
+
+Yang, Z. R. "Biological Applications of Support Vector Machines." *Briefings in Bioinformatics*, vol. 5, no. 4, Jan. 2004, pp. 328--38, https://doi.org/10.1093/bib/5.4.328.
