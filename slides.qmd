@@ -40,7 +40,10 @@ photo here
 
 ## Methods
 
--   To begin understanding the use-cases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.![](images/322.png){width="353"}
+-   To begin understanding the use-cases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
+
+\
+![](images/322.png){width="353"}
 
 ## Definitions
 
@@ -52,7 +55,7 @@ $$
 ||x||= √x21+x22+...+x2n
 $$
 
-## Definitions
+## Definitions - Length and direction of a vector
 
 *Vector Directions*
 
