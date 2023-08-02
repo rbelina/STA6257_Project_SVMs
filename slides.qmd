@@ -22,6 +22,8 @@ format: revealjs
 
 ![[@brereton_2010_support]](ml1.png)
 
+## Introduction
+
 -   SVMs offer several advantages over traditional classification algorithms.
 
 -   By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios [@tian_2012_recent].
@@ -69,6 +71,8 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance.
 
+## Data Processing Methods for SVMs
+
 -   Data Split: Divide the dataset into training and testing subsets.
     The training set is used to train the SVM model, while the testing set is used for evaluating its performance.
     Model Training:
@@ -76,12 +80,16 @@ $w = (x1/||x||,x2/||x||)$
 -   Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand.
     Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.
 
+## Data Processing Methods for SVMs
+
 -   Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel.
     This can be done using techniques like grid search or cross-validation.
 
 -   Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters.
     The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression).
     Model Evaluation:
+
+## Data Processing Methods for SVMs
 
 -   Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC).
 
@@ -91,6 +99,8 @@ $w = (x1/||x||,x2/||x||)$
     This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset.
     Repeat this process k times, rotating the evaluation subset each time.
 
+## Data Processing Methods for SVMs
+
 -   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.
 
 -   Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data.
@@ -98,7 +108,7 @@ $w = (x1/||x||,x2/||x||)$
 
 ## Analysis and Results
 
-### Linear Support Vector Machine Classifier
+## Linear Support Vector Machine Classifier
 
 ```{r}
 
@@ -143,4 +153,4 @@ abline((beta0 + 1) / beta[2], -beta[1] / beta[2], lty = 2)
 
 ```
 
-### Non-Linear Support Vector Machine Classifier
+## Non-Linear Support Vector Machine Classifier

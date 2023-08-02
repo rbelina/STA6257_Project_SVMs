@@ -351,7 +351,10 @@ Robert Belina
 <li><p>Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.</p></li>
 </ul>
 
-<img data-src="ml1.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="brereton_2010_support">[@brereton_2010_support]</span></p><ul>
+<img data-src="ml1.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="brereton_2010_support">[@brereton_2010_support]</span></p></section>
+<section id="introduction-1" class="slide level2">
+<h2>Introduction</h2>
+<ul>
 <li><p>SVMs offer several advantages over traditional classification algorithms.</p></li>
 <li><p>By emphasizing the importance of the margin, SVMs can effectively handle datasets with high dimensionality, noise, and outliers, resulting in superior performance in complex scenarios <span class="citation" data-cites="tian_2012_recent">[@tian_2012_recent]</span>.</p></li>
 <li><p>The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions.</p></li>
@@ -391,20 +394,42 @@ Robert Belina
 <li><p>Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary.</p></li>
 <li><p>Feature Scaling: Normalize the feature values to ensure that they have similar scales. Common scaling techniques include standardization (mean centering and scaling to unit variance) or normalization to a specific range.</p></li>
 <li><p>Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance.</p></li>
+</ul>
+</section>
+<section id="data-processing-methods-for-svms-1" class="slide level2">
+<h2>Data Processing Methods for SVMs</h2>
+<ul>
 <li><p>Data Split: Divide the dataset into training and testing subsets. The training set is used to train the SVM model, while the testing set is used for evaluating its performance. Model Training:</p></li>
 <li><p>Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand. Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.</p></li>
+</ul>
+</section>
+<section id="data-processing-methods-for-svms-2" class="slide level2">
+<h2>Data Processing Methods for SVMs</h2>
+<ul>
 <li><p>Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel. This can be done using techniques like grid search or cross-validation.</p></li>
 <li><p>Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters. The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression). Model Evaluation:</p></li>
+</ul>
+</section>
+<section id="data-processing-methods-for-svms-3" class="slide level2">
+<h2>Data Processing Methods for SVMs</h2>
+<ul>
 <li><p>Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC).</p></li>
 <li><p>Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared.</p></li>
 <li><p>Cross-Validation: Perform k-fold cross-validation to estimate the model’s generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time.</p></li>
+</ul>
+</section>
+<section id="data-processing-methods-for-svms-4" class="slide level2">
+<h2>Data Processing Methods for SVMs</h2>
+<ul>
 <li><p>Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.</p></li>
 <li><p>Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.</p></li>
 </ul>
 </section>
 <section id="analysis-and-results" class="slide level2">
 <h2>Analysis and Results</h2>
-<h3 id="linear-support-vector-machine-classifier">Linear Support Vector Machine Classifier</h3>
+</section>
+<section id="linear-support-vector-machine-classifier" class="slide level2">
+<h2>Linear Support Vector Machine Classifier</h2>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
@@ -445,7 +470,9 @@ Number of Support Vectors:  23</code></pre>
 <p><img data-src="slides_files/figure-revealjs/unnamed-chunk-1-4.png" width="960"></p>
 </div>
 </div>
-<h3 id="non-linear-support-vector-machine-classifier">Non-Linear Support Vector Machine Classifier</h3>
+</section>
+<section id="non-linear-support-vector-machine-classifier" class="slide level2">
+<h2>Non-Linear Support Vector Machine Classifier</h2>
 <div class="footer footer-default">
 
 </div>
