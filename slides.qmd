@@ -15,7 +15,7 @@ editor_options:
 
 -   The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
-### Brief Introduction to Machine Learning
+## Brief Introduction to Machine Learning
 
 -   Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.
 
@@ -42,7 +42,7 @@ photo here
 
 -   To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
 
-### Definintions
+## Definintions
 
 *Length of a Vector*
 
