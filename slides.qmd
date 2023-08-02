@@ -171,7 +171,7 @@ print(svmfit)
 
 plot(svmfit, dat)
 
-make.grid = function(x, n = 105) {
+make.grid = function(x, n = 75) {
   grange = apply(x, 2, range)
   x1 = seq(from = grange[1,1], to = grange[2,1], length = n)
   x2 = seq(from = grange[1,2], to = grange[2,2], length = n)
