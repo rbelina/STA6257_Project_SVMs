@@ -12,7 +12,7 @@ format: revealjs
 
 -   The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
-## Brief Introduction to Machine Learning
+## Brief Introduction to Machine Learning {.smaller}
 
 -   Machine learning is the process of enabling computers to take actions by providing them with data and allowing them to discover patterns and insights autonomously, without explicit programming.
 
@@ -42,7 +42,6 @@ photo here
 
 -   To begin understanding the use-cases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
 
-\
 ![](images/322.png){width="353"}
 
 ## Definitions
@@ -91,13 +90,13 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand. Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.
 
-## Data Processing Methods for SVMs
+## Data Processing Methods for SVMs {.smaller}
 
 -   Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel. This can be done using techniques like grid search or cross-validation.
 
 -   Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters. The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression).
 
-## Data Processing Methods for SVMs
+## Data Processing Methods for SVMs {.smaller}
 
 -   Classification Metrics: Evaluate the performance of the SVM model for classification tasks using metrics such as accuracy, precision, recall, F1-score, and area under the receiver operating characteristic curve (AUC-ROC).
 
@@ -105,7 +104,7 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Cross-Validation: Perform k-fold cross-validation to estimate the model's generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time.
 
-## Data Processing Methods for SVMs
+## Data Processing Methods for SVMs {.smaller}
 
 -   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.
 
