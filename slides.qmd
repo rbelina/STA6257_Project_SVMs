@@ -94,7 +94,7 @@ $w = (x1/||x||,x2/||x||)$
     This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset.
     Repeat this process k times, rotating the evaluation subset each time.
 
--   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing dataset.
+-   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.
 
 -   Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data.
     Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
