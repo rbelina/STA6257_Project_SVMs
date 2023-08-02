@@ -42,7 +42,7 @@ photo here
 
 -   To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
 
-## Definintions
+## Definitions
 
 *Length of a Vector*
 
