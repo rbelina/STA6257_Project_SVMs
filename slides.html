@@ -532,44 +532,53 @@ Number of Support Vectors:  6</code></pre>
 </section>
 <section id="non-linear-support-vector-machine-classifier" class="slide level2 scrollable">
 <h2>Non-Linear Support Vector Machine Classifier</h2>
-<p>For non-linear classification, we will use a dataset from the Elements of Statistical Learning text, specifically the ElemStat Mixture data. We begin by loading the data and assigning the training data from the data frame.</p>
+<ul>
+<li>Use a dataset from the Elements of Statistical Learning text:ElemStat Mixture data.</li>
+</ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x"        "y"        "xnew"     "prob"     "marginal" "px1"      "px2"     
 [8] "means"   </code></pre>
 </div>
 </div>
-<p>Plotting the data and confirming its dimension.</p>
+<ul>
+<li>Plotting the data and confirming its dimension.</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
 </div>
 </div>
-<p>Looking at the data above, we can see a large degree of overlay. We will attempt to make sense of the data further. The code below shows y conversion to factor and the SVM fitting. Our kernel is radial and the cost is set to 5.</p>
+<ul>
+<li>Large amount of overlay</li>
+</ul>
 <div class="cell">
 
 </div>
-<p>The code below creates the grid for our predictions. Once again using the expand.grid function and predicting classification.</p>
+<ul>
+<li>Grid and expand.grid function</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </div>
 </div>
-<p>The above plot shows the non-linear decision boundary wrapping under the red data points and winding up around the black.</p>
-<p>Following, we can fine-tune this visualization by employing a Bayes decision boundary: a boundary that separates different classes in a data set based on the Bayes’ theorem. This is the optimal type of decision boundary, limiting misclassifications rates and being the best achievable boundary for our data set.</p>
+<ul>
+<li>Non-linear data</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 </div>
 </section>
-<section id="results" class="slide level2">
+<section id="results" class="slide level2 scrollable">
 <h2>Results</h2>
 <p>From the above model, we found that the non-linear SVM was very similar to the Bayes decision boundary, showcasing support vector machine’s ability as a classification tool.</p>
 <p>Additionally, the SVM model was tested on an independent test data set to assess its generalization performance. The results showed consistent and reliable performance, further validating the effectiveness of the SVM model.</p>
 <p>Overall, the results highlight the capabilities of SVMs as a powerful machine learning algorithm for classification tasks. The SVM model successfully classified the target variable with high accuracy and demonstrated robustness in handling complex relationships within the data. These findings emphasize the potential of SVMs as a valuable tool for data analysis and prediction in various domains.</p>
 </section>
-<section id="conlusion" class="slide level2">
+<section id="conlusion" class="slide level2 scrollable">
 <h2>Conlusion</h2>
 <p>In conclusion, this paper has provided a comprehensive overview of Support Vector Machines (SVMs) and their application in the field of machine learning. SVMs have proven to be a powerful and versatile algorithm for tackling classification and regression tasks. Their effectiveness in high-dimensional spaces and ability to handle cases with more features than samples make them a valuable tool in various real-world applications.</p>
 <p>Throughout the paper, we discussed the fundamental concepts of SVMs, including hyperplanes, support vectors, and the importance of maximizing the margin for better classification performance. We also explored the use of kernel functions to handle non-linear data and the significance of hyperparameter tuning to prevent overfitting and achieve optimal results.</p>
@@ -577,7 +586,7 @@ Number of Support Vectors:  6</code></pre>
 <p>However, we also discussed some limitations of SVMs, such as the lack of direct probability estimates and the computational expense associated with cross-validation for probability calculation. It is crucial to carefully select appropriate kernel functions and regularization terms, especially when dealing with high-dimensional data to prevent overfitting.</p>
 <p>Overall, SVMs continue to be a widely used and highly regarded algorithm in the machine learning community due to their accuracy, effectiveness, and versatility. Their ability to handle various classification tasks and perform well in both linear and non-linear scenarios makes them a valuable asset in the data scientist’s toolkit. As machine learning continues to evolve, SVMs will remain an essential component for addressing complex classification challenges in diverse applications. Further research and development in this area hold the promise of expanding SVMs’ capabilities and advancing their practical implementation in various domains.</p>
 </section>
-<section id="references" class="slide level2">
+<section id="references" class="slide level2 scrollable">
 <h2>References</h2>
 <div class="footer footer-default">
 
