@@ -52,6 +52,7 @@ $$
 ||x||= √x21+x22+...+x2n
 $$
 
+## Definitions
 *Vector Directions*
 
 -   The direction of a vector x = (x1, x2) is denoted by w and is defined as follows:
