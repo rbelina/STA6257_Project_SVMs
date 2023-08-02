@@ -147,6 +147,8 @@ The new hyperplane for this three-dimensional dataset can now be viewed in two d
 -   A higher dimension is need\
     ![](images/Screen%20Shot%202023-08-01%20at%2011.01.30%20PM.png){width="619"}
 
+## Data in Three Dimensions - Separated with a 2D Plane ![](images/Screen%20Shot%202023-08-01%20at%2011.12.05%20PM.png){width="489"}
+
 ## Analysis and Results
 
 ## Linear Support Vector Machine Classifier
