@@ -151,7 +151,7 @@ The new hyperplane for this three-dimensional dataset can now be viewed in two d
 
 ## Analysis and Results
 
-## Linear Support Vector Machine Classifier
+## Linear Support Vector Machine Classifier {.scrollable}
 
 ```{r}
 
