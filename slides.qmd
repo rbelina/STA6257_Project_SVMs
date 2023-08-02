@@ -30,13 +30,13 @@ format: revealjs
 
 -   The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions.
 
-## Introduction
+## Introduction {.scrollable}
 
 -   SVMs provide a principled approach to handle both binary and multiclass classification problems. [@evgenybyvatov_2003_support]
 
 -   The versatility of SVMs extends beyond just classification tasks [@brereton_2010_support].
 
-photo here
+![](images/546484.png)
 
 ## Methods
 
