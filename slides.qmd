@@ -8,7 +8,7 @@ format: revealjs
 
 -   Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains.
 
--   Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and     regression tasks effectively.
+-   Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively.
 
 -   The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
@@ -20,7 +20,7 @@ format: revealjs
 
 -   Just as humans learn through information and data gathering, machines also require data to learn and make informed decisions.
 
-![[@brereton_2010_support]](ml1.png)
+\[[@brereton_2010_support]\]![](ml1.png){width="217"}
 
 ## Introduction
 
@@ -30,8 +30,9 @@ format: revealjs
 
 -   The distinguishing feature of SVMs lies in their ability to transform the original input space into a higher-dimensional feature space through the use of kernel functions.
 
--   SVMs provide a principled approach to handle both binary and multiclass classification problems.
-    [@evgenybyvatov_2003_support]
+## Introduction
+
+-   SVMs provide a principled approach to handle both binary and multiclass classification problems. [@evgenybyvatov_2003_support]
 
 -   The versatility of SVMs extends beyond just classification tasks [@brereton_2010_support].
 
@@ -39,20 +40,20 @@ photo here
 
 ## Methods
 
--   To begin understanding the usecases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.
+-   To begin understanding the use-cases of SVMs we will first look at the underlying math behind SVMs: linear algebra and a touch of optimization theory.![](images/322.png){width="353"}
 
 ## Definitions
 
 *Length of a Vector*
 
--   The norm of a vector x, denoted as \|\|x\|\|, represents its length.
-    The Euclidean norm formula used to compute the norm of a vector x = (x1, x2, ..., xn) is as follows:
+-   The norm of a vector x, denoted as \|\|x\|\|, represents its length. The Euclidean norm formula used to compute the norm of a vector x = (x1, x2, ..., xn) is as follows:
 
 $$
 ||x||= √x21+x22+...+x2n
 $$
 
 ## Definitions
+
 *Vector Directions*
 
 -   The direction of a vector x = (x1, x2) is denoted by w and is defined as follows:
@@ -67,28 +68,21 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary.
 
--   Feature Scaling: Normalize the feature values to ensure that they have similar scales.
-    Common scaling techniques include standardization (mean centering and scaling to unit variance) or normalization to a specific range.
+-   Feature Scaling: Normalize the feature values to ensure that they have similar scales. Common scaling techniques include standardization (mean centering and scaling to unit variance) or normalization to a specific range.
 
 -   Feature Selection: Select relevant features that contribute most to the prediction task, reducing dimensionality and improving model performance.
 
 ## Data Processing Methods for SVMs
 
--   Data Split: Divide the dataset into training and testing subsets.
-    The training set is used to train the SVM model, while the testing set is used for evaluating its performance.
-    Model Training:
+-   Data Split: Divide the dataset into training and testing subsets. The training set is used to train the SVM model, while the testing set is used for evaluating its performance. Model Training:
 
--   Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand.
-    Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.
+-   Kernel Selection: Determine the appropriate kernel function based on the nature of the data and the problem at hand. Common kernel functions include linear, polynomial, Gaussian radial basis function (RBF), and sigmoid.
 
 ## Data Processing Methods for SVMs
 
--   Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel.
-    This can be done using techniques like grid search or cross-validation.
+-   Hyperparameter Tuning: Optimize the hyperparameters of the SVM model, such as the regularization parameter C and kernel-specific parameters like the degree of polynomial or the width of the RBF kernel. This can be done using techniques like grid search or cross-validation.
 
--   Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters.
-    The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression).
-    Model Evaluation:
+-   Model Fitting: Train the SVM model using the training dataset and the chosen hyperparameters. The goal is to find the optimal hyperplane or decision boundary that maximizes the margin between classes (in the case of classification) or minimizes the error (in the case of regression).
 
 ## Data Processing Methods for SVMs
 
@@ -96,16 +90,13 @@ $w = (x1/||x||,x2/||x||)$
 
 -   Regression Metrics: Assess the performance of the SVM model for regression tasks using metrics such as mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared.
 
--   Cross-Validation: Perform k-fold cross-validation to estimate the model's generalization performance.
-    This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset.
-    Repeat this process k times, rotating the evaluation subset each time.
+-   Cross-Validation: Perform k-fold cross-validation to estimate the model's generalization performance. This involves dividing the training dataset into k subsets, training the model on k-1 subsets, and evaluating its performance on the remaining subset. Repeat this process k times, rotating the evaluation subset each time.
 
 ## Data Processing Methods for SVMs
 
 -   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.
 
--   Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data.
-    Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
+-   Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
 
 ## Analysis and Results
 
