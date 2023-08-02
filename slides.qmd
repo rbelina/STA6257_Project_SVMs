@@ -2,16 +2,13 @@
 title: "Support Vector Machines"
 author: "Robert Belina"
 format: revealjs
-editor_options: 
-  markdown: 
-    wrap: sentence
 ---
 
 ## Introduction
 
 -   Support Vector Machines (SVMs) have emerged as a powerful and versatile machine learning algorithm with applications spanning various domains.
 
--   Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and regression tasks effectively.
+-   Developed by Vapnik and colleagues in the 1990s, SVMs have gained significant popularity due to their ability to handle both classification and     regression tasks effectively.
 
 -   The fundamental concept behind SVMs is to find an optimal hyperplane that maximally separates different classes or fits the data points for regression, while simultaneously maintaining a clear margin between them [@kecman_2005_support].
 
