@@ -68,12 +68,12 @@ $w = (x1/||x||,x2/||x||)$
 
 ## Definitions - Dot Product
 
--   The geometric formula for the dot product \
+-   The geometric formula for the dot product\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.01.48%20PM.png)
 
 ## Definitions - Dot Product
 
--   The algebraic formula of the dot product \
+-   The algebraic formula of the dot product\
     ![](images/Screen%20Shot%202023-08-01%20at%2010.05.14%20PM.png)
 
 ## Data Processing Methods for SVMs
@@ -109,6 +109,19 @@ $w = (x1/||x||,x2/||x||)$
 -   Model Selection: Compare the performance of different SVM models with varying hyperparameters or kernel functions to select the optimal model with the best performance on the testing data set.
 
 -   Model Deployment: Once the SVM model has been trained and evaluated, it can be deployed to make predictions on new, unseen data. Preprocess the new data using the same steps as the training data (e.g., feature scaling), and apply the trained SVM model to classify or regress the new instances.
+
+## Support Vector Machines in R {.scrollable}
+
+-   Classification algorithm\
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.20.16%20PM.png){width="657"}
+-   Using the cricket player data set \
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.25.00%20PM.png){width="401"}
+-   Drawing the decision boundary\
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.27.42%20PM.png){width="373"}
+-   Margins matter\
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.42.36%20PM.png){width="363"}
+-   The correct decision boundary\
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.43.34%20PM.png){width="378"}
 
 ## Analysis and Results
 
