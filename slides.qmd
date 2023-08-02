@@ -64,6 +64,11 @@ $w = (x1/||x||,x2/||x||)$
 
 ![](ml2.png)
 
+## Definitions - Dot Product
+
+-   The geometric formula for the dot product \
+    ![](images/Screen%20Shot%202023-08-01%20at%2010.01.48%20PM.png)
+
 ## Data Processing Methods for SVMs
 
 -   Data Cleaning: Remove any irrelevant or redundant features, handle missing values, and address outliers if necessary.
